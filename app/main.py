@@ -12,6 +12,10 @@ def main():
     benchmarked_suppliers = add_category_benchmarks(suppliers)
     
     scored_suppliers = calculate_supplier_risk_scores(benchmarked_suppliers)
+    scored_suppliers.to_csv(
+        "data/processed/scored_supplier_performance.csv",
+        index=False
+    )   
     highest_risk_supplier = scored_suppliers.iloc[0]
 
     explanation = generate_risk_explanation(
