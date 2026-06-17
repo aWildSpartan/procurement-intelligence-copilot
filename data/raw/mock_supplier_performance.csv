@@ -1,0 +1,51 @@
+supplier_id,supplier_name,category,country,total_spend_usd,on_time_delivery_rate,defect_rate,average_lead_time_days,price_variance_pct,response_time_hours,order_volume,late_deliveries,quality_incidents
+SUP-001,Apex Components,Electronic Components,China,485000,92.5,1.8,28,-3.5,18,120,9,2
+SUP-002,Northstar Metals,Raw Materials,USA,720000,88.0,2.4,35,4.2,24,95,11,3
+SUP-003,Titan Plastics,Packaging,Mexico,310000,95.0,1.1,18,-1.8,12,140,7,1
+SUP-004,BlueRiver Fasteners,Fasteners,Taiwan,265000,90.2,2.9,24,2.5,30,110,11,4
+SUP-005,Global Rubber Works,Rubber Parts,Thailand,540000,83.7,4.8,42,6.5,46,85,14,5
+SUP-006,Precision Gear Co.,Mechanical Parts,Germany,890000,96.4,0.9,32,8.2,10,75,3,1
+SUP-007,Delta Packaging,Packaging,Brazil,190000,78.5,3.6,22,-4.0,52,130,28,5
+SUP-008,Evergreen Electronics,Electronic Components,China,660000,91.8,2.0,30,-2.2,20,115,9,2
+SUP-009,Atlas Industrial,Raw Materials,India,430000,81.2,5.1,50,-6.8,60,90,17,6
+SUP-010,SilverLine Tools,Tools,Italy,375000,94.1,1.4,29,3.1,16,70,4,1
+SUP-011,Pacific Moldings,Plastic Parts,Vietnam,295000,87.6,3.3,38,-1.5,36,105,13,4
+SUP-012,Orion Logistics Parts,Mechanical Parts,Poland,610000,89.4,2.2,34,1.9,28,100,11,2
+SUP-013,Summit Bearings,Mechanical Parts,Japan,780000,97.2,0.7,27,9.5,8,80,2,1
+SUP-014,PrimeCable Systems,Electrical Components,China,455000,86.9,3.9,41,-5.5,42,125,16,5
+SUP-015,CopperCore Ltd.,Raw Materials,Chile,520000,93.0,1.6,45,2.8,22,65,5,1
+SUP-016,Metro Packaging,Packaging,Colombia,155000,84.8,2.8,25,-3.0,40,100,15,3
+SUP-017,Quantum Sensors,Electronic Components,South Korea,950000,98.1,0.5,26,11.2,6,60,1,0
+SUP-018,IronBridge Metals,Raw Materials,Turkey,685000,76.4,6.2,55,-8.5,72,88,21,7
+SUP-019,FlexiSeal Rubber,Rubber Parts,Malaysia,335000,89.9,2.5,36,0.5,26,92,9,2
+SUP-020,Alpine Precision,Mechanical Parts,Switzerland,1120000,97.8,0.6,31,13.8,7,58,1,0
+SUP-021,FastPro Screws,Fasteners,China,245000,85.1,4.1,33,-6.2,48,150,22,6
+SUP-022,GreenPack Solutions,Packaging,Portugal,205000,91.0,1.9,21,1.2,18,95,9,2
+SUP-023,Nova Circuits,Electronic Components,Taiwan,735000,93.8,1.2,29,4.5,14,105,7,1
+SUP-024,Brasil Polymers,Plastic Parts,Brazil,275000,80.3,4.5,20,-7.1,54,135,27,6
+SUP-025,EuroValve Systems,Mechanical Parts,Czech Republic,640000,92.7,1.5,37,5.7,19,72,5,1
+SUP-026,AsiaTech Boards,Electronic Components,China,580000,82.0,5.4,44,-9.0,65,118,21,7
+SUP-027,SecureWrap Packaging,Packaging,USA,330000,96.0,0.8,19,6.1,11,90,4,0
+SUP-028,Reliant Rubber,Rubber Parts,Indonesia,290000,79.6,5.8,47,-5.8,58,97,20,6
+SUP-029,ClearPath Optics,Electronic Components,Japan,870000,95.4,0.9,34,10.6,9,55,3,0
+SUP-030,SteelSource Global,Raw Materials,China,760000,84.2,3.7,49,-4.3,44,82,13,4
+SUP-031,Amazonas Fasteners,Fasteners,Brazil,180000,88.7,2.6,16,-2.5,34,125,14,3
+SUP-032,Continental Springs,Mechanical Parts,Germany,705000,94.9,1.0,30,7.4,13,78,4,1
+SUP-033,EastWind Plastics,Plastic Parts,China,420000,86.0,3.5,39,-4.8,37,112,16,4
+SUP-034,Andes Copper Supply,Raw Materials,Peru,510000,90.5,2.1,46,1.7,25,68,6,2
+SUP-035,PrimeSeal Industrial,Rubber Parts,India,360000,77.2,6.5,52,-7.9,70,102,23,8
+SUP-036,LiteBox Packaging,Packaging,Thailand,225000,92.3,1.7,23,-0.8,17,108,8,2
+SUP-037,MicroTech Components,Electronic Components,Vietnam,505000,88.9,2.7,36,-1.9,31,117,13,3
+SUP-038,Nordic Bearings,Mechanical Parts,Sweden,820000,96.8,0.8,33,12.1,8,62,2,0
+SUP-039,Union Fastener Group,Fasteners,Mexico,240000,82.9,4.6,27,-5.4,50,145,25,7
+SUP-040,StarWire Electrical,Electrical Components,South Korea,615000,93.5,1.3,32,5.2,15,89,6,1
+SUP-041,BlueOcean Metals,Raw Materials,Australia,675000,91.7,1.8,53,3.8,21,64,5,1
+SUP-042,QuickMold Plastics,Plastic Parts,Malaysia,315000,85.6,3.8,35,-3.7,39,120,17,5
+SUP-043,Helios Sensors,Electronic Components,Germany,990000,97.5,0.4,28,14.5,5,52,1,0
+SUP-044,TerraPack Brazil,Packaging,Brazil,165000,79.1,4.0,18,-6.5,56,138,29,6
+SUP-045,Eastern Rubber Co.,Rubber Parts,China,455000,86.8,3.9,43,-4.9,41,96,13,4
+SUP-046,Vertex Machine Parts,Mechanical Parts,USA,735000,90.8,1.9,36,4.0,23,74,7,2
+SUP-047,SmartCable Industries,Electrical Components,China,530000,81.5,5.2,48,-8.2,63,119,22,7
+SUP-048,GoldenNut Fasteners,Fasteners,Taiwan,260000,91.9,2.0,25,1.5,20,132,11,3
+SUP-049,Inca Industrial Metals,Raw Materials,Bolivia,395000,87.3,2.9,51,-2.0,33,73,9,2
+SUP-050,Optima Packaging,Packaging,Spain,285000,94.6,1.2,24,3.4,12,88,5,1
