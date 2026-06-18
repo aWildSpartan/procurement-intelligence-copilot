@@ -1,4 +1,5 @@
 from data_loader import load_supplier_data
+from query_engine import answer_procurement_question
 from scoring import calculate_supplier_risk_scores
 from risk_explainer import generate_risk_explanation
 from benchmarking import add_category_benchmarks

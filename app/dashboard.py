@@ -1,5 +1,6 @@
 from risk_explainer import generate_risk_explanation
 from recommendation_engine import generate_supplier_recommendations
+from query_engine import answer_procurement_question
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -61,6 +62,21 @@ st.info(
     f"Recommended focus: "
     f"{summary_recommendations['recommended_actions'][0]}"
 )
+
+st.subheader("Ask the Procurement Analyst")
+
+user_question = st.text_input(
+    "Ask a procurement question",
+    placeholder="Example: Which suppliers should I audit first?",
+)
+
+if user_question:
+    answer = answer_procurement_question(
+        user_question,
+        filtered_df,
+    )
+
+    st.success(answer)
 
 supplier_options = sorted(filtered_df["supplier_name"].unique())
 
