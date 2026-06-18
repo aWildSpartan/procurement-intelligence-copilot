@@ -181,6 +181,27 @@ fig_country = px.bar(
 
 st.plotly_chart(fig_country, use_container_width=True)
 
+st.subheader("Spend Exposure vs Supplier Risk")
+
+fig_spend_risk = px.scatter(
+    filtered_df,
+    x="total_spend_usd",
+    y="supplier_risk_score",
+    size="order_volume",
+    color="risk_category",
+    hover_name="supplier_name",
+    hover_data=[
+        "category",
+        "country",
+        "on_time_delivery_rate",
+        "defect_rate",
+        "average_lead_time_days",
+    ],
+    title="Supplier Risk vs Spend Exposure",
+)
+
+st.plotly_chart(fig_spend_risk, use_container_width=True)
+
 st.subheader("Supplier Risk Table")
 
 st.dataframe(
