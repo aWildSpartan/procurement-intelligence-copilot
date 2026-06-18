@@ -2,6 +2,7 @@ from risk_explainer import generate_risk_explanation
 from recommendation_engine import generate_supplier_recommendations
 from query_engine import answer_procurement_question
 from supplier_recommender import recommend_alternative_suppliers
+from portfolio_risk import calculate_risk_exposure
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -16,6 +17,7 @@ st.title("Procurement Intelligence Copilot")
 st.subheader("Supplier Risk Dashboard")
 
 df = pd.read_csv("data/processed/scored_supplier_performance.csv")
+df = calculate_risk_exposure(df)
 
 risk_filter = st.sidebar.multiselect(
     "Filter by Risk Category",
@@ -34,7 +36,7 @@ filtered_df = df[
     & (df["category"].isin(category_filter))
 ]
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("Total Suppliers", len(filtered_df))
 col2.metric(
@@ -44,6 +46,10 @@ col2.metric(
 col3.metric(
     "Average Risk Score",
     round(filtered_df["supplier_risk_score"].mean(), 2),
+)
+col4.metric(
+    "Total Risk Exposure",
+    f"${filtered_df['risk_exposure_score'].sum():,.0f}",
 )
 
 highest_risk = filtered_df.sort_values(
@@ -241,6 +247,23 @@ fig_spend_risk = px.scatter(
 
 st.plotly_chart(fig_spend_risk, use_container_width=True)
 
+st.subheader("Top Supplier Risk Exposure")
+
+top_exposure = filtered_df.sort_values(
+    by="risk_exposure_score",
+    ascending=False,
+).head(10)
+
+fig_exposure = px.bar(
+    top_exposure,
+    x="risk_exposure_score",
+    y="supplier_name",
+    orientation="h",
+    title="Top 10 Suppliers by Risk Exposure",
+)
+
+st.plotly_chart(fig_exposure, use_container_width=True)
+
 st.subheader("Supplier Risk Table")
 
 st.dataframe(
@@ -255,6 +278,8 @@ st.dataframe(
             "defect_rate",
             "average_lead_time_days",
             "response_time_hours",
+            "total_spend_usd",
+            "risk_exposure_score",
         ]
     ].sort_values(by="supplier_risk_score", ascending=False),
     use_container_width=True,
