@@ -1,19 +1,23 @@
-# procurement-intelligence-copilot
-AI-powered procurement analytics and supplier risk decision-support tool# Procurement Intelligence Copilot
+# Procurement Intelligence Copilot
 
 AI-powered procurement analytics and supplier risk decision-support tool.
 
-## Project Goal
+## Overview
 
-This project helps procurement teams evaluate supplier performance, identify supplier risk, and generate AI-assisted procurement recommendations.
+This project helps procurement teams evaluate supplier performance, identify supplier risk, benchmark suppliers against category peers, and generate procurement recommendations.
 
-## MVP Features
+The goal is to demonstrate how analytics, business logic, and AI-ready architecture can support better procurement decisions.
 
-- Supplier performance dashboard
+## Key Features
+
 - Supplier risk scoring
-- Supplier ranking
-- AI-generated risk explanations
-- CSV-based data input
+- Category-level supplier benchmarking
+- Risk driver explanations
+- Procurement action recommendations
+- Executive summary generation
+- Interactive Streamlit dashboard
+- Rule-based procurement analyst Q&A
+- Risk analysis by supplier, category, country, and spend exposure
 
 ## Tech Stack
 
@@ -21,9 +25,23 @@ This project helps procurement teams evaluate supplier performance, identify sup
 - Pandas
 - Streamlit
 - Plotly
-- SQLite
-- OpenAI API
+- CSV-based data pipeline
 
-## Project Status
+## Project Architecture
 
-Sprint 0: Project setup and mock data design.
+```text
+Raw Supplier Data
+        ↓
+Data Loader
+        ↓
+Category Benchmarking
+        ↓
+Supplier Risk Scoring
+        ↓
+Risk Explanation Engine
+        ↓
+Recommendation Engine
+        ↓
+Procurement Query Engine
+        ↓
+Streamlit Dashboard
