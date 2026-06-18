@@ -47,9 +47,14 @@ col3.metric(
     "Average Risk Score",
     round(filtered_df["supplier_risk_score"].mean(), 2),
 )
+highest_exposure_supplier = filtered_df.sort_values(
+    by="risk_exposure_score",
+    ascending=False,
+).iloc[0]
+
 col4.metric(
-    "Total Risk Exposure",
-    f"${filtered_df['risk_exposure_score'].sum():,.0f}",
+    "Highest Exposure Supplier",
+    highest_exposure_supplier["supplier_name"],
 )
 
 highest_risk = filtered_df.sort_values(
