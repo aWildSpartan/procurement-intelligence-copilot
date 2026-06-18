@@ -1,6 +1,7 @@
 def calculate_risk_exposure(df):
     """
-    Calculate supplier portfolio risk exposure based on supplier risk and spend.
+    Calculate normalized supplier portfolio risk exposure based on
+    supplier risk score and total spend.
     """
 
     portfolio_df = df.copy()
@@ -14,9 +15,9 @@ def calculate_risk_exposure(df):
     max_value = portfolio_df["risk_exposure_value"].max()
 
     if max_value == min_value:
-        portfolio_df["risk_exposure_score"] = 0
+        portfolio_df["normalized_risk_exposure_score"] = 0
     else:
-        portfolio_df["risk_exposure_score"] = (
+        portfolio_df["normalized_risk_exposure_score"] = (
             (
                 portfolio_df["risk_exposure_value"] - min_value
             )
@@ -25,6 +26,6 @@ def calculate_risk_exposure(df):
         ).round(2)
 
     return portfolio_df.sort_values(
-        by="risk_exposure_score",
+        by="normalized_risk_exposure_score",
         ascending=False,
     )

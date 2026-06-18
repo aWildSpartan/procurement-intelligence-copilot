@@ -48,7 +48,7 @@ col3.metric(
     round(filtered_df["supplier_risk_score"].mean(), 2),
 )
 highest_exposure_supplier = filtered_df.sort_values(
-    by="risk_exposure_score",
+    by="normalized_risk_exposure_score",
     ascending=False,
 ).iloc[0]
 
@@ -255,17 +255,16 @@ st.plotly_chart(fig_spend_risk, use_container_width=True)
 st.subheader("Top Supplier Risk Exposure")
 
 top_exposure = filtered_df.sort_values(
-    by="risk_exposure_score",
+    by="normalized_risk_exposure_score",
     ascending=False,
 ).head(10)
 
 fig_exposure = px.bar(
     top_exposure,
-    x="risk_exposure_score",
+    x="normalized_risk_exposure_score",
     y="supplier_name",
     orientation="h",
-    title="Top 10 Suppliers by Risk Exposure",
-)
+    title="Top 10 Suppliers by Normalized Risk Exposure")
 
 st.plotly_chart(fig_exposure, use_container_width=True)
 
@@ -284,7 +283,7 @@ st.dataframe(
             "average_lead_time_days",
             "response_time_hours",
             "total_spend_usd",
-            "risk_exposure_score",
+            "normalized_risk_exposure_score",
         ]
     ].sort_values(by="supplier_risk_score", ascending=False),
     use_container_width=True,
