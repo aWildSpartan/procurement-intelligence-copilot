@@ -163,6 +163,24 @@ fig_category = px.bar(
 
 st.plotly_chart(fig_category, use_container_width=True)
 
+st.subheader("Risk Distribution by Country")
+
+country_risk = (
+    filtered_df.groupby("country")["supplier_risk_score"]
+    .mean()
+    .reset_index()
+    .sort_values(by="supplier_risk_score", ascending=False)
+)
+
+fig_country = px.bar(
+    country_risk,
+    x="country",
+    y="supplier_risk_score",
+    title="Average Supplier Risk Score by Country",
+)
+
+st.plotly_chart(fig_country, use_container_width=True)
+
 st.subheader("Supplier Risk Table")
 
 st.dataframe(
