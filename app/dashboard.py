@@ -1,6 +1,7 @@
 from risk_explainer import generate_risk_explanation
 from recommendation_engine import generate_supplier_recommendations
 from query_engine import answer_procurement_question
+from supplier_recommender import recommend_alternative_suppliers
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -100,6 +101,11 @@ supplier_row = filtered_df[
 explanation = generate_risk_explanation(supplier_row)
 recommendations = generate_supplier_recommendations(supplier_row)
 
+alternative_suppliers = recommend_alternative_suppliers(
+    supplier_row,
+    filtered_df,
+)
+
 st.divider()
 
 st.subheader("Supplier Intelligence Panel")
@@ -141,6 +147,23 @@ with right_col:
 
     st.markdown(f"**Priority:** {recommendations['priority']}")
     st.markdown(f"**Business Impact:** {recommendations['business_impact']}")
+
+    st.markdown("### Alternative Suppliers")
+
+    if len(alternative_suppliers) > 0:
+        st.dataframe(
+            alternative_suppliers[
+                [
+                    "supplier_name",
+                    "supplier_risk_score",
+                    "risk_category",
+                    "country",
+                ]
+            ],
+            use_container_width=True,
+        )
+    else:
+        st.write("No alternative suppliers available.")
 
 st.divider()
 
