@@ -44,9 +44,37 @@ col3.metric(
     round(filtered_df["supplier_risk_score"].mean(), 2),
 )
 
+highest_risk = filtered_df.sort_values(
+    by="supplier_risk_score",
+    ascending=False,
+).iloc[0]
+
+summary_explanation = generate_risk_explanation(highest_risk)
+summary_recommendations = generate_supplier_recommendations(highest_risk)
+
+st.info(
+    f"Current supplier portfolio contains "
+    f"{len(filtered_df[filtered_df['risk_category'] == 'High Risk'])} "
+    f"high-risk suppliers, with an average risk score of "
+    f"{round(filtered_df['supplier_risk_score'].mean(), 2)}. "
+    f"The highest-risk supplier is {highest_risk['supplier_name']}. "
+    f"Recommended focus: "
+    f"{summary_recommendations['recommended_actions'][0]}"
+)
+
+supplier_options = sorted(filtered_df["supplier_name"].unique())
+
+default_supplier = filtered_df.sort_values(
+    by="supplier_risk_score",
+    ascending=False,
+).iloc[0]["supplier_name"]
+
+default_index = supplier_options.index(default_supplier)
+
 selected_supplier = st.sidebar.selectbox(
     "Select Supplier",
-    sorted(filtered_df["supplier_name"].unique()),
+    supplier_options,
+    index=default_index,
 )
 
 supplier_row = filtered_df[
