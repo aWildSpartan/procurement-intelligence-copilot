@@ -145,6 +145,24 @@ fig = px.bar(
 
 st.plotly_chart(fig, use_container_width=True)
 
+st.subheader("Risk Distribution by Category")
+
+category_risk = (
+    filtered_df.groupby("category")["supplier_risk_score"]
+    .mean()
+    .reset_index()
+    .sort_values(by="supplier_risk_score", ascending=False)
+)
+
+fig_category = px.bar(
+    category_risk,
+    x="category",
+    y="supplier_risk_score",
+    title="Average Supplier Risk Score by Category",
+)
+
+st.plotly_chart(fig_category, use_container_width=True)
+
 st.subheader("Supplier Risk Table")
 
 st.dataframe(
