@@ -4,6 +4,8 @@
 
 # Procurement Intelligence Copilot
 
+🚀 Live Demo: https://your-app.streamlit.app
+
 AI-powered procurement analytics and supplier decision-support platform.
 
 ## Overview
@@ -11,6 +13,10 @@ AI-powered procurement analytics and supplier decision-support platform.
 Procurement Intelligence Copilot helps procurement teams identify supplier risk, evaluate sourcing alternatives, analyze spend exposure, and generate actionable procurement recommendations.
 
 The platform combines procurement expertise, analytics, and AI-inspired decision support to improve supplier management and sourcing decisions.
+
+## System Architecture
+
+![Architecture Diagram](docs/screenshots/architecture_diagram.png)
 
 ⸻
 
