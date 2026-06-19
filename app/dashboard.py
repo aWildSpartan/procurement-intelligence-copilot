@@ -4,6 +4,7 @@ from query_engine import answer_procurement_question
 from supplier_recommender import recommend_alternative_suppliers
 from portfolio_risk import calculate_risk_exposure
 from executive_brief import generate_executive_brief
+from scenario_analysis import simulate_supplier_failure
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -124,6 +125,11 @@ alternative_suppliers = recommend_alternative_suppliers(
     filtered_df,
 )
 
+failure_simulation = simulate_supplier_failure(
+    supplier_row,
+    filtered_df,
+)
+
 st.divider()
 
 st.subheader("Supplier Intelligence Panel")
@@ -182,6 +188,33 @@ with right_col:
         )
     else:
         st.write("No alternative suppliers available.")
+
+        st.markdown("### Supplier Failure Simulation")
+
+    st.write(
+        f"**Spend at Risk:** "
+        f"${failure_simulation['spend_at_risk']:,.0f}"
+    )
+
+    st.write(
+        f"**Category:** "
+        f"{failure_simulation['category']}"
+    )
+
+    st.write(
+        f"**Alternative Suppliers Available:** "
+        f"{failure_simulation['alternative_suppliers']}"
+    )
+
+    st.write(
+        f"**Business Risk:** "
+        f"{failure_simulation['business_risk']}"
+    )
+
+    st.write(
+        f"**Recommendation:** "
+        f"{failure_simulation['recommendation']}"
+    )
 
 st.divider()
 
