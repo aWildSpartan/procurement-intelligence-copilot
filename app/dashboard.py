@@ -6,6 +6,7 @@ from portfolio_risk import calculate_risk_exposure
 from executive_brief import generate_executive_brief
 from scenario_analysis import simulate_supplier_failure
 from supplier_comparison import compare_suppliers
+from opportunity_engine import generate_procurement_opportunities
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -368,6 +369,18 @@ fig_exposure = px.bar(
     title="Top 10 Suppliers by Normalized Risk Exposure")
 
 st.plotly_chart(fig_exposure, use_container_width=True)
+
+st.subheader("Procurement Opportunities")
+
+opportunities = generate_procurement_opportunities(filtered_df)
+
+if opportunities:
+    st.dataframe(
+        opportunities,
+        use_container_width=True,
+    )
+else:
+    st.write("No procurement opportunities identified for the current filters.")
 
 st.subheader("Supplier Risk Table")
 
