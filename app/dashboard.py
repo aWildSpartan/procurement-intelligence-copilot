@@ -249,33 +249,30 @@ if st.button("Compare Suppliers"):
 
     st.write("### Comparison Results")
 
-    st.write(
-        f"**Recommended Supplier:** "
-        f"{comparison['Recommended Supplier']}"
-    )
+    st.success(comparison["recommendation_summary"])
 
     comparison_table = {
-        "Metric": [
-            "Risk Score",
-            "On-Time Delivery",
-            "Defect Rate",
-            "Lead Time",
-            "Annual Spend",
-        ],
-        comparison["Supplier A"]: [
-            comparison["Risk Score A"],
-            comparison["On Time Delivery A"],
-            comparison["Defect Rate A"],
-            comparison["Lead Time A"],
-            comparison["Spend A"],
-        ],
-        comparison["Supplier B"]: [
-            comparison["Risk Score B"],
-            comparison["On Time Delivery B"],
-            comparison["Defect Rate B"],
-            comparison["Lead Time B"],
-            comparison["Spend B"],
-        ],
+    "Metric": [
+        "Risk Score",
+        "On-Time Delivery",
+        "Defect Rate",
+        "Lead Time",
+        "Annual Spend",
+    ],
+    supplier_a_row["supplier_name"]: [
+        supplier_a_row["supplier_risk_score"],
+        supplier_a_row["on_time_delivery_rate"],
+        supplier_a_row["defect_rate"],
+        supplier_a_row["average_lead_time_days"],
+        supplier_a_row["total_spend_usd"],
+    ],
+    supplier_b_row["supplier_name"]: [
+        supplier_b_row["supplier_risk_score"],
+        supplier_b_row["on_time_delivery_rate"],
+        supplier_b_row["defect_rate"],
+        supplier_b_row["average_lead_time_days"],
+        supplier_b_row["total_spend_usd"],
+    ],
     }
 
     st.dataframe(comparison_table)

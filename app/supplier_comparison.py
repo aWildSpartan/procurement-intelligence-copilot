@@ -1,30 +1,30 @@
 def compare_suppliers(supplier_a, supplier_b):
     """
-    Compare two suppliers and recommend the lower-risk option.
+    Compare two suppliers and recommend the stronger procurement option.
     """
 
-    if (
-        supplier_a["supplier_risk_score"]
-        < supplier_b["supplier_risk_score"]
-    ):
+    if supplier_a["supplier_risk_score"] < supplier_b["supplier_risk_score"]:
         recommended_supplier = supplier_a["supplier_name"]
+        risk_gap = round(
+            supplier_b["supplier_risk_score"]
+            - supplier_a["supplier_risk_score"],
+            2,
+        )
     else:
         recommended_supplier = supplier_b["supplier_name"]
+        risk_gap = round(
+            supplier_a["supplier_risk_score"]
+            - supplier_b["supplier_risk_score"],
+            2,
+        )
 
-    comparison_data = {
-        "Supplier A": supplier_a["supplier_name"],
-        "Supplier B": supplier_b["supplier_name"],
-        "Risk Score A": supplier_a["supplier_risk_score"],
-        "Risk Score B": supplier_b["supplier_risk_score"],
-        "On Time Delivery A": supplier_a["on_time_delivery_rate"],
-        "On Time Delivery B": supplier_b["on_time_delivery_rate"],
-        "Defect Rate A": supplier_a["defect_rate"],
-        "Defect Rate B": supplier_b["defect_rate"],
-        "Lead Time A": supplier_a["average_lead_time_days"],
-        "Lead Time B": supplier_b["average_lead_time_days"],
-        "Spend A": supplier_a["total_spend_usd"],
-        "Spend B": supplier_b["total_spend_usd"],
-        "Recommended Supplier": recommended_supplier,
+    recommendation_summary = (
+        f"Prefer {recommended_supplier} based on a "
+        f"{risk_gap}-point lower supplier risk score."
+    )
+
+    return {
+        "recommended_supplier": recommended_supplier,
+        "risk_gap": risk_gap,
+        "recommendation_summary": recommendation_summary,
     }
-
-    return comparison_data
