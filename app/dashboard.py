@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 st.title("Procurement Intelligence Copilot")
-st.subheader("Supplier Risk Dashboard")
+st.subheader("Supplier Risk & Decision Intelligence")
 
 df = pd.read_csv("data/processed/scored_supplier_performance.csv")
 df = calculate_risk_exposure(df)
@@ -78,7 +78,7 @@ st.info(
     f"{summary_recommendations['recommended_actions'][0]}"
 )
 
-st.subheader("Ask the Procurement Analyst")
+st.subheader("Procurement Analyst Q&A")
 
 user_question = st.text_input(
     "Ask a procurement question",
@@ -282,7 +282,7 @@ if st.button("Compare Suppliers"):
 
 st.divider()
 
-st.subheader("Top Supplier Risks")
+st.subheader("Supplier Risk Ranking")
 
 top_risk = filtered_df.sort_values(
     by="supplier_risk_score",
@@ -335,7 +335,7 @@ fig_country = px.bar(
 
 st.plotly_chart(fig_country, use_container_width=True)
 
-st.subheader("Spend Exposure vs Supplier Risk")
+st.subheader("Financial Exposure vs Supplier Risk")
 
 fig_spend_risk = px.scatter(
     filtered_df,
@@ -356,7 +356,7 @@ fig_spend_risk = px.scatter(
 
 st.plotly_chart(fig_spend_risk, use_container_width=True)
 
-st.subheader("Top Supplier Risk Exposure")
+st.subheader("Highest Supplier Risk Exposure")
 
 top_exposure = filtered_df.sort_values(
     by="normalized_risk_exposure_score",
