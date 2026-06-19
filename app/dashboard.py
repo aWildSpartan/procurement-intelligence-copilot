@@ -5,6 +5,7 @@ from supplier_recommender import recommend_alternative_suppliers
 from portfolio_risk import calculate_risk_exposure
 from executive_brief import generate_executive_brief
 from scenario_analysis import simulate_supplier_failure
+from supplier_comparison import compare_suppliers
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -215,6 +216,69 @@ with right_col:
         f"**Recommendation:** "
         f"{failure_simulation['recommendation']}"
     )
+
+st.subheader("Supplier Comparison")
+
+compare_supplier_a = st.selectbox(
+    "Supplier A",
+    supplier_options,
+    key="compare_a",
+)
+
+compare_supplier_b = st.selectbox(
+    "Supplier B",
+    supplier_options,
+    index=min(1, len(supplier_options)-1),
+    key="compare_b",
+)
+
+if st.button("Compare Suppliers"):
+
+    supplier_a_row = filtered_df[
+        filtered_df["supplier_name"] == compare_supplier_a
+    ].iloc[0]
+
+    supplier_b_row = filtered_df[
+        filtered_df["supplier_name"] == compare_supplier_b
+    ].iloc[0]
+
+    comparison = compare_suppliers(
+        supplier_a_row,
+        supplier_b_row,
+    )
+
+    st.write("### Comparison Results")
+
+    st.write(
+        f"**Recommended Supplier:** "
+        f"{comparison['Recommended Supplier']}"
+    )
+
+    comparison_table = {
+        "Metric": [
+            "Risk Score",
+            "On-Time Delivery",
+            "Defect Rate",
+            "Lead Time",
+            "Annual Spend",
+        ],
+        comparison["Supplier A"]: [
+            comparison["Risk Score A"],
+            comparison["On Time Delivery A"],
+            comparison["Defect Rate A"],
+            comparison["Lead Time A"],
+            comparison["Spend A"],
+        ],
+        comparison["Supplier B"]: [
+            comparison["Risk Score B"],
+            comparison["On Time Delivery B"],
+            comparison["Defect Rate B"],
+            comparison["Lead Time B"],
+            comparison["Spend B"],
+        ],
+    }
+
+    st.dataframe(comparison_table)
 
 st.divider()
 
