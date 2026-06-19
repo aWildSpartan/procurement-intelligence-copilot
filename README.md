@@ -4,7 +4,7 @@
 
 # Procurement Intelligence Copilot
 
-🚀 Live Demo: https://your-app.streamlit.app
+🚀 Live Demo: https://procurement-copilot.streamlit.app
 
 AI-powered procurement analytics and supplier decision-support platform.
 
