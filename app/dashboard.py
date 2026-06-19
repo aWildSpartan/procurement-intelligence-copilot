@@ -3,6 +3,7 @@ from recommendation_engine import generate_supplier_recommendations
 from query_engine import answer_procurement_question
 from supplier_recommender import recommend_alternative_suppliers
 from portfolio_risk import calculate_risk_exposure
+from executive_brief import generate_executive_brief
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -89,6 +90,12 @@ if user_question:
     )
 
     st.success(answer)
+
+st.subheader("Executive Procurement Brief")
+
+if st.button("Generate Executive Brief"):
+    brief = generate_executive_brief(filtered_df)
+    st.markdown(brief)
 
 supplier_options = sorted(filtered_df["supplier_name"].unique())
 
