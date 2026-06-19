@@ -1,122 +1,134 @@
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![Procurement](https://img.shields.io/badge/Domain-Procurement-green)
+
 # Procurement Intelligence Copilot
 
-AI-powered procurement analytics and supplier risk decision-support platform.
+AI-powered procurement analytics and supplier decision-support platform.
 
 ## Overview
 
-Procurement teams often manage supplier performance through spreadsheets, fragmented reports, and manual reviews.
+Procurement Intelligence Copilot helps procurement teams identify supplier risk, evaluate sourcing alternatives, analyze spend exposure, and generate actionable procurement recommendations.
 
-Procurement Intelligence Copilot provides a structured framework for:
+The platform combines procurement expertise, analytics, and AI-inspired decision support to improve supplier management and sourcing decisions.
 
-- Evaluating supplier performance
-- Identifying supplier risk
-- Benchmarking suppliers against category peers
-- Explaining risk drivers
-- Recommending mitigation actions
-- Supporting procurement decision-making
-
-The project demonstrates how analytics, business logic, and AI-ready architectures can improve procurement operations.
-
----
-
-## Dashboard Overview
-
-Executive-level supplier risk monitoring dashboard with portfolio-wide KPIs, risk summaries, and procurement analytics.
-
-![Dashboard Overview](docs/screenshots/dashboard_overview.png)
-
----
-
-## Supplier Intelligence Panel
-
-Detailed supplier analysis including:
-
-- Risk score
-- Category benchmarking
-- Risk drivers
-- Recommended actions
-- Business impact assessment
-
-![Supplier Intelligence Panel](docs/screenshots/supplier_intelligence_panel.png)
-
----
-
-## Procurement Analyst
-
-Natural-language procurement assistant capable of answering questions such as:
-
-- Which suppliers should be audited first?
-- Which supplier has the highest risk?
-- Which category has the highest average risk?
-- Which countries present the highest supplier risk?
-
-![Procurement Analyst](docs/screenshots/procurement_analyst_qa.png)
-
----
+⸻
 
 ## Key Features
 
 ### Supplier Risk Scoring
 
-Evaluates suppliers using:
-
-- On-time delivery
-- Defect rates
-- Lead times
-- Supplier responsiveness
-- Price variance
+        * Risk scoring based on supplier performance
+        * Delivery, quality, lead time, and responsiveness analysis
+        * Supplier risk categorization
 
 ### Category Benchmarking
 
-Compares supplier performance against category averages.
+* Compare suppliers against category averages
+* Identify performance gaps
+* Highlight underperforming suppliers
 
 ### Risk Explanation Engine
 
-Explains why suppliers are classified as high, medium, or low risk.
+* Explain why suppliers are considered high, medium, or low risk
+* Translate operational metrics into business insights
 
 ### Recommendation Engine
 
-Generates procurement actions including:
+* Generate procurement actions
+* Supplier review recommendations
+* Audit recommendations
+* Monitoring plans
 
-- Supplier reviews
-- Quality audits
-- Alternate supplier identification
-- Monitoring recommendations
+### Alternative Supplier Recommendations
+
+* Identify lower-risk suppliers in the same category
+* Support sourcing decisions
+* Improve supply continuity planning
+
+### Supplier Failure Simulation
+
+* Estimate spend at risk
+* Evaluate supplier dependency
+* Assess business impact
+* Recommend mitigation actions
+
+### Supplier Comparison Engine
+
+Compare suppliers across:
+
+* Risk
+* Quality
+* Delivery performance
+* Lead times
+* Spend
+
+Generate sourcing recommendations based on comparative performance.
+
+### Executive Procurement Brief
+
+Generate executive-ready summaries including:
+
+* Portfolio health
+* High-risk suppliers
+* Exposure concerns
+* Category-level risks
+* Recommended actions
+
+### Procurement Opportunity Engine
+
+Identify opportunities such as:
+
+* Risk reduction
+* Supplier development
+* Contract renegotiation
+* Supplier diversification
+
+⸻
+
+## Dashboard
+
+### Dashboard Overview
+
+Executive procurement dashboard with portfolio-wide risk visibility.
+
+### Supplier Intelligence Panel
+
+Detailed supplier analysis with recommendations and risk explanations.
 
 ### Procurement Analyst
 
-Rule-based procurement copilot capable of answering portfolio-level questions.
+Interactive procurement assistant capable of answering procurement questions.
 
----
+⸻
 
-## Tech Stack
+## Technology Stack
 
 ### Analytics
 
-- Python
-- Pandas
-- NumPy
+* Python
+* Pandas
+* NumPy
 
 ### Visualization
 
-- Streamlit
-- Plotly
+* Streamlit
+* Plotly
 
 ### Data
 
-- CSV-based procurement dataset
+* CSV-based procurement dataset
 
 ### Architecture
 
-- Modular Python application
-- Decision-support architecture
-- AI-ready design
+* Modular Python application
+* Decision-support architecture
+* AI-ready design
 
----
+⸻
 
 ## System Architecture
 
-```text
 Raw Supplier Data
         ↓
 Data Loader
@@ -129,48 +141,79 @@ Risk Explanation Engine
         ↓
 Recommendation Engine
         ↓
-Procurement Query Engine
+Alternative Supplier Engine
+        ↓
+Supplier Comparison Engine
+        ↓
+Failure Simulation Engine
+        ↓
+Opportunity Engine
+        ↓
+Executive Brief Generator
+        ↓
+Procurement Analyst
         ↓
 Streamlit Dashboard
-```
 
----
+⸻
 
-## Business Use Case
+## Business Use Cases
 
-This project simulates how procurement organizations can identify supply risk before disruptions occur.
+* Supplier performance management
+* Supplier risk monitoring
+* Strategic sourcing
+* Procurement analytics
+* Supplier diversification planning
+* Supply chain resilience initiatives
+* Executive procurement reporting
 
-Potential applications include:
+⸻
 
-- Supplier performance management
-- Procurement analytics
-- Supplier relationship management
-- Risk monitoring
-- Supply chain resilience initiatives
+## How to Run
 
----
+git clone https://github.com/aWildSpartan/procurement-intelligence-copilot.git
+cd procurement-intelligence-copilot
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app/dashboard.py
 
-## Future Roadmap
+⸻
+
+## Roadmap
 
 ### Version 2
 
-- LLM-powered procurement analyst
-- Natural language supplier reports
-- Procurement chat interface
+* LLM-powered procurement analyst
+* Natural language procurement reports
+* AI-generated sourcing recommendations
+* Supplier portfolio optimization
 
 ### Version 3
 
-- RFQ comparison assistant
-- Contract risk extraction
-- Supplier diversification analysis
-- Supplier portfolio optimization
+* PostgreSQL backend
+* ERP integration
+* Multi-user support
+* Contract intelligence
+* RFQ analysis
 
----
+⸻
+
+## Skills Demonstrated
+
+* Supply Chain Management
+* Procurement Analytics
+* Python Development
+* Data Analytics
+* Business Intelligence
+* Decision Support Systems
+* Product Thinking
+* AI-Ready Architecture
+
+⸻
 
 ## Author
 
 Lucca Martins
 
-Supply Chain Management | Analytics | Procurement | AI-Enabled Operations
-
-Focused on building intelligent systems that improve operational and procurement decision-making.
+Supply Chain Management | Procurement | Analytics | AI-Enabled Operations
